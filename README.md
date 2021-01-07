@@ -25,6 +25,7 @@ Just add to your `_config.yml`:
 ```
 jekyll_elm:
   output_file_extension: ".js"
+  destination_folder: "assets/js/elm"
 ```
 
 ## Contributing

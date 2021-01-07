@@ -9,6 +9,7 @@ class ElmCompiler
 
     @content = content
     @output_file_extension = output_file_extension
+    @destination_folder = "#{destination_folder}/".gsub("//","/")
   end
 
   def process!
@@ -70,7 +71,11 @@ class ElmCompiler
     @output_file_extension || ".html"
   end
 
+  def destination_folder
+    @destination_folder || "elm"
+  end
+
   def dest_path
-    File.join(elm_dir, 'build', "#{tmp_file}.#{output_file_extension}")
+    File.join(destination_folder, "#{tmp_file}.#{output_file_extension}")
   end
 end

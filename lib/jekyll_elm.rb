@@ -8,6 +8,7 @@ module Jekyll
       return if @setup
 
       @output_file_extension = @config['jekyll_elm']['output_file_extension']
+      @destination_folder = @config['jekyll_elm']['destination_folder']
       @setup = true
     end
 
@@ -21,7 +22,7 @@ module Jekyll
 
     def convert(content)
       setup unless @setup
-      ElmCompiler.new(content, @output_file_extension).process!
+      ElmCompiler.new(content, @output_file_extension, @destination_folder).process!
     end
   end
 end
