@@ -6,12 +6,26 @@ Compile Elm scripts and include them in a Jekyll site.
 
 1.  Add this line to your application's Gemfile `gem 'jekyll_elm'`.
 2.  And then execute `bundle`.
-3.  Add the following to your `_config.yml`: `gems: [jekyll_elm]`.
+3.  Add the following to your `_config.yml`: 
+```yml
+  plugins: 
+    - jekyll_elm
+ ```
 
 ## Usage
 
 Simple create a new post/draft/page/whatever with the extension `.elm`. It will
 be detected and compiled.
+
+
+### Generating js files
+You can also create the .elm file inside the `assets/elm` directory and tell the plugin to output js files.
+Just add to your `_config.yml`:
+
+```
+jekyll_elm:
+  output_extension: "js"
+``
 
 ## Contributing
 
