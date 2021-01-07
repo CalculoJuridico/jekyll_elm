@@ -2,9 +2,9 @@ require 'open3'
 require 'securerandom'
 
 class ElmCompiler
-  ELM_COMMAND = 'PATH=$(yarn bin):$PATH elm make'
+  ELM_COMMAND = 'PATH=$(yarn bin elm):$PATH elm make'
 
-  def initialize(content, output_file_extension)
+  def initialize(content, output_file_extension, destination_folder)
     setup_dir
 
     @content = content
