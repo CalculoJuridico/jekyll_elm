@@ -20,6 +20,7 @@ module Jekyll
     end
 
     def convert(content)
+      setup unless @setup
       ElmCompiler.new(content, @output_file_extension).process!
     end
   end
