@@ -9,7 +9,7 @@ class ElmCompiler
 
     @content = content
     @output_file_extension = output_file_extension
-    @destination_folder = "#{destination_folder}/".gsub("//","/")
+    @destination_folder = destination_folder
   end
 
   def process!
@@ -18,7 +18,10 @@ class ElmCompiler
     with_error_handling do
       result = File.open(tmp_path, 'w') { |f| f.write(@content) }
 
-      out, err, status = Open3.capture3("#{ELM_COMMAND} #{tmp_path} --output #{dest_path}")
+
+      command = "#{ELM_COMMAND} #{tmp_path} --output #{dest_path}"
+      puts "Compiling Elm file... $ #{command}"
+      out, err, status = Open3.capture3(command)
 
       if status.success?
         output = File.read(dest_path)
