@@ -4,10 +4,11 @@ require 'securerandom'
 class ElmCompiler
   ELM_COMMAND = 'PATH=$(yarn bin):$PATH elm make'
 
-  def initialize(content)
+  def initialize(content, output_file_extension)
     setup_dir
 
     @content = content
+    @output_file_extension = output_file_extension
   end
 
   def process!
@@ -65,7 +66,11 @@ class ElmCompiler
     File.join(elm_dir, "#{tmp_file}.elm")
   end
 
+  def output_file_extension
+    @output_file_extension || ".html"
+  end
+
   def dest_path
-    File.join(elm_dir, 'build', "#{tmp_file}.html")
+    File.join(elm_dir, 'build', "#{tmp_file}.#{output_file_extension}")
   end
 end

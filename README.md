@@ -6,11 +6,11 @@ Compile Elm scripts and include them in a Jekyll site.
 
 1.  Add this line to your application's Gemfile `gem 'jekyll_elm'`.
 2.  And then execute `bundle`.
-3.  Add the following to your `_config.yml`: 
+3.  Add the following to your `_config.yml`:
 ```yml
-  plugins: 
+  plugins:
     - jekyll_elm
- ```
+```
 
 ## Usage
 
@@ -24,7 +24,7 @@ Just add to your `_config.yml`:
 
 ```
 jekyll_elm:
-  output_extension: "js"
+  output_file_extension: ".js"
 ``
 
 ## Contributing
