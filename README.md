@@ -25,7 +25,7 @@ Just add to your `_config.yml`:
 ```
 jekyll_elm:
   output_file_extension: ".js"
-``
+```
 
 ## Contributing
 
